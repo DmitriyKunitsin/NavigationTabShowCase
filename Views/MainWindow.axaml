@@ -4,13 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
+		xmlns:anim="https://github.com/avaloniaui/animation"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="NavigationTabShowCase.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="NavigationTabShowCase">
 	<Window.Styles>
-		
+		<Style Selector="Expander.selected">
+		</Style>
 	</Window.Styles>
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -24,28 +26,7 @@
 			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
 		<Grid Grid.Row="0">
-			<StackPanel>
 			<TextBlock Text="Заготовка один"/>
-			<Expander HorizontalAlignment="Center">
-				<Expander.Header>
-					<StackPanel Orientation="Horizontal" >
-						<iconPacks:PackIconBoxIcons Kind="LogosBlender" Width="24" Height="24" Margin="3"/>
-						<iconPacks:PackIconBoxIcons Kind="RegularPulse" Width="24" Height="24" Margin="3"/>
-						<iconPacks:PackIconBoxIcons Kind="SolidAddToQueue" Width="24" Height="24" Margin="3"/>
-						<iconPacks:PackIconBoxIcons Kind="SolidZap" Width="24" Height="24" Margin="3"/>
-						<iconPacks:PackIconBoxIcons Kind="SolidArea" Width="24" Height="24" Margin="3"/>
-						<iconPacks:PackIconBoxIcons Kind="SolidVial" Width="24" Height="24" Margin="3"/>
-					</StackPanel>
-				</Expander.Header>
-
-				<StackPanel Orientation="Vertical" Margin="10">
-					<StackPanel Orientation="Vertical">
-						<iconPacks:PackIconBoxIcons VerticalAlignment="Center" Kind="SolidArea" Width="32" Height="32" Margin="3"/>
-						<TextBlock Text="Опция 1" VerticalAlignment="Center"/>
-					</StackPanel>
-				</StackPanel>
-			</Expander>
-			</StackPanel>
 		</Grid>
 		<Grid Grid.Row="1">
 			<TextBlock Text="Заготовка два"/>
