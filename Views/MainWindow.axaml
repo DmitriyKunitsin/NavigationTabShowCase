@@ -10,29 +10,85 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="NavigationTabShowCase">
+	<Window.DataContext>
+		<vm:MainWindowViewModel/>
+	</Window.DataContext>
 	<Window.Styles>
+		<!--Кастомный стиль для кнопки-->
+		<Style Selector="Button.CustomButton">
+			<Setter Property="CornerRadius" Value="10"/>
+			<Setter Property="Background" Value="#646477"/>
+			<Setter Property="Transitions">
+				<Transitions>
+					<BrushTransition Property="Background" Duration="0:0:0.5"/>
+				</Transitions>
+			</Setter>
+		</Style>
+		<Style Selector="Button.CustomButton:pointerover">
+			<Setter Property="Background" Value="#A8A8B8"/>
+		</Style>
 		
-		
+		<!-- Стиль для NavigationTabStrip всех содержищихся кнопок-->
+		<Style Selector="localModel|NavigationTabStrip">
+			<Setter Property="Template">
+				<ControlTemplate>
+					<StackPanel Orientation="Horizontal" Spacing="5">
+						<ItemsPresenter/>
+					</StackPanel>
+				</ControlTemplate>
+			</Setter> 
+		</Style>
+
+		<!-- Стиль для NavigationTabStripItem кнопки менюшки -->
+		<Style Selector="localModel|NavigationTabStripItem">
+			<Setter Property="Template">
+				<ControlTemplate>
+					<Button Content="{TemplateBinding Content}"
+							Classes="CustomButton"
+							Margin="5"
+							HorizontalAlignment="Stretch"
+							HorizontalContentAlignment="Center"
+							CommandParameter="{Binding $parent[localModel:NavigationTabStrip].SelectedItem}"
+							/>
+				</ControlTemplate>
+			</Setter>
+		</Style>
 	</Window.Styles>
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+	<Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
-		<Grid Grid.Row="0">
-			<TextBlock Text="Заготовка один"/>
-			<localModel:NavigationTabStrip ItemsSource="{Binding CollectionOneForTest}">
-				
-			</localModel:NavigationTabStrip>
+		<Grid Grid.Row="0" >
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Пример наполнения контентом из ViewModel" Grid.Row="0"/>
+			<TextBlock Text="{Binding Tabs.Count}" Grid.Row="1"/>
+			<Grid Grid.Row="2">
+				<ScrollViewer HorizontalScrollBarVisibility="Auto">
+					<localModel:NavigationTabStrip ItemsSource="{Binding Tabs}">
+					</localModel:NavigationTabStrip>
+				</ScrollViewer>
+			</Grid>	
 		</Grid>
 		<Grid Grid.Row="1">
-			<TextBlock Text="Заготовка два"/>
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Пример наполнения контентом из XAML" Grid.Row="0"/>
+			<localModel:NavigationTabStrip Grid.Row="1">
+				<localModel:NavigationTabStripItem Content="Кнопка 1"/>
+				<localModel:NavigationTabStripItem Content="Кнопка 2"/>
+				<localModel:NavigationTabStripItem Content="Кнопка 3"/>
+				<localModel:NavigationTabStripItem Content="Кнопка 4"/>
+			</localModel:NavigationTabStrip>
 		</Grid>
 	</Grid>
 	

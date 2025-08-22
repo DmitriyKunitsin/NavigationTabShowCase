@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using NavigationTabShowCase.Models;
+using System.Collections.ObjectModel;
 
 namespace NavigationTabShowCase.ViewModels
 {
@@ -10,31 +11,15 @@ namespace NavigationTabShowCase.ViewModels
             public string? Description { get; set; }
             public int Id { get; set; }
         }
-        public string Greeting { get; } = "Welcome to Avalonia!";
-        public ObservableCollection<TestItemClass> CollectionOneForTest { get; set; }
+        public ObservableCollection<NavigationTabStripItem> Tabs { get; }
+        = new ObservableCollection<NavigationTabStripItem>() 
+        { 
+            new NavigationTabStripItem { Content = "Вкладка 1"},
+            new NavigationTabStripItem { Content = "Вкладка 2"},
+            new NavigationTabStripItem { Content = "Вкладка 3"}
+        };
         public MainWindowViewModel()
         {
-            CollectionOneForTest = new ObservableCollection<TestItemClass>() 
-            { 
-                new TestItemClass()
-                {
-                    Name = "Test_one",
-                    Id = 1,
-                    Description = "Description_one"
-                },
-                new TestItemClass()
-                {
-                    Name = "Test_two",
-                    Id = 1,
-                    Description = "Description_two"
-                },
-                new TestItemClass()
-                {
-                    Name = "Test_three",
-                    Id = 1,
-                    Description = "Description_three"
-                }
-            };
         }
     }
 }
