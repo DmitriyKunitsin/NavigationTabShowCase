@@ -1,19 +1,26 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
+using NavigationTabShowCase.ViewModels.Intarfaces;
 using System;
+using System.Windows.Input;
 
 namespace NavigationTabShowCase.Models
 {
     /// <summary>
     /// 
     /// </summary>
-    public class NavigationActionStripItem : ContentControl
+    public class NavigationActionStripItem : ContentControl, IRibbonAction
     {
         // Реализация элемента action-стрипа
         /// <summary>
         /// Регистрация события клика
         /// </summary>
         public static readonly RoutedEvent<RoutedEventArgs> ClickEvent = RoutedEvent.Register<NavigationActionStripItem, RoutedEventArgs>(nameof(Click), RoutingStrategies.Bubble);
+
+        public string Title => "Decription";
+
+        public ICommand Command => throw new NotImplementedException();
+
         /// <summary>
         /// Обертка для доступа к событию
         /// </summary>

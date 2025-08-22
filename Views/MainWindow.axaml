@@ -32,11 +32,20 @@
 		<Style Selector="localModel|NavigationTabStrip">
 			<Setter Property="Template">
 				<ControlTemplate>
-					<TreeView>
+					<StackPanel Orientation="Horizontal">
+						<TabControl>
+							<TabItem Header="{Binding $parent[localModel:NavigationTabStrip].NameTab}"
+									 >
+								<TabItem.Content>
+									<ItemsPresenter/>
+								</TabItem.Content>
+							</TabItem>
+						</TabControl>
+					</StackPanel>
+					<!--<TreeView>
 						<TreeViewItem Header="{Binding $parent[localModel:NavigationTabStrip].NameTab}"> 
-							<ItemsPresenter/>
 						</TreeViewItem>
-					</TreeView>
+					</TreeView>-->
 				</ControlTemplate>
 			</Setter> 
 		</Style>
@@ -45,7 +54,7 @@
 		<Style Selector="localModel|NavigationTabStripItem">
 			<Setter Property="Template">
 				<ControlTemplate>
-					<StackPanel Orientation="Horizontal">
+					<StackPanel IsVisible="{Binding $parent[localModel:NavigationTabStrip].SelectedItem}">
 						<Button Content="{TemplateBinding Content}"
 								Classes="CustomButton"
 								Margin="5"
@@ -73,8 +82,12 @@
 				<RowDefinition/>
 			</Grid.RowDefinitions>
 			<TextBlock Text="Пример наполнения контентом из ViewModel" Grid.Row="0"/>
-			<localModel:NavigationTabStrip NameTab="Настройки диалогового окна" ItemsSource="{Binding Tabs}" Grid.Row="2">
-			</localModel:NavigationTabStrip>
+			<StackPanel Orientation="Horizontal">
+				<localModel:NavigationTabStrip NameTab="Главная" ItemsSource="{Binding Tabs}" Grid.Row="2">
+				</localModel:NavigationTabStrip>
+				<localModel:NavigationTabStrip NameTab="Меню" ItemsSource="{Binding TabsMenu}" Grid.Row="2">
+				</localModel:NavigationTabStrip>
+			</StackPanel>
 		</Grid>
 		<Grid Grid.Row="1">
 			<Grid.RowDefinitions>
@@ -83,14 +96,31 @@
 			</Grid.RowDefinitions>
 			<TextBlock Text="Пример наполнения контентом из XAML" Grid.Row="0"/>
 			<localModel:NavigationTabStrip NameTab="XAML" Grid.Row="1">
-				<localModel:NavigationTabStripItem Content="Кнопка 1"/>
+				<!--<localModel:NavigationTabStripItem Content="Кнопка 1"/>
 				<localModel:NavigationTabStripItem Content="Кнопка 2"/>
 				<localModel:NavigationTabStripItem Content="Кнопка 3"/>
-				<localModel:NavigationTabStripItem Content="Кнопка 4"/>
+				<localModel:NavigationTabStripItem Content="Кнопка 4"/>-->
 			</localModel:NavigationTabStrip>
 		</Grid>
 		<Grid Grid.Row="2">
-			<TreeView>
+			<TabControl>
+				<TabItem Header="Главная">
+					
+				</TabItem>
+				<TabItem Header="Меню">
+					<TabItem.Content>
+						<StackPanel Orientation="Horizontal">
+							<TabItem Header="Файл" PointerPressed="TabItem_PointerPressed">
+							</TabItem>
+							<TabItem Header="Данные">
+							</TabItem>
+							<TabItem Header="Вид">
+							</TabItem>
+						</StackPanel>
+					</TabItem.Content>
+				</TabItem>
+			</TabControl>
+			<!--<TreeView>
 				<TreeViewItem Header="Главная вкладка">
 					<StackPanel Orientation="Horizontal">
 						<Button Content="Кнопка 1"/>
@@ -98,7 +128,7 @@
 						<Button Content="Кнопка 1"/>
 					</StackPanel>
 				</TreeViewItem>
-			</TreeView>
+			</TreeView>-->
 		</Grid>
 	</Grid>
 	

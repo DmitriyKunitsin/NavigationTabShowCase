@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using NavigationTabShowCase.ViewModels.Intarfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +13,7 @@ namespace NavigationTabShowCase.Models
     /// <summary>
     /// Класс представляющий действия с выпадающим списком настроек, содержит в себе набор айтемов
     /// </summary>
-    public class NavigationActionStrip : ItemsControl
+    public class NavigationActionStrip : ItemsControl, ITab
     {
         /// <summary>
         /// Свойство, указывающее, развернута ли панель навигации.
@@ -32,6 +33,10 @@ namespace NavigationTabShowCase.Models
         /// <summary>
         /// Набор айтемов, которые содержит в себе выпадающий список
         /// </summary>
-        public ObservableCollection<NavigationActionStripItem> Actions { get; private set; } = new ObservableCollection<NavigationActionStripItem>();
+        //public ObservableCollection<NavigationActionStripItem> Actions { get; private set; } = new ObservableCollection<NavigationActionStripItem>();
+
+        public string Title => "Decription";
+
+        public IReadOnlyList<IRibbonAction> Actions => new ObservableCollection<NavigationActionStripItem>();
     }
 }

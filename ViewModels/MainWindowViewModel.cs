@@ -18,6 +18,13 @@ namespace NavigationTabShowCase.ViewModels
             new NavigationTabStripItem { Content = "Меню"},
             new NavigationTabStripItem { Content = "Данные"}
         };
+        public ObservableCollection<NavigationTabStripItem> TabsMenu { get; }
+        = new ObservableCollection<NavigationTabStripItem>() 
+        { 
+            new NavigationTabStripItem { Content = "Главная"},
+            new NavigationTabStripItem { Content = "Меню"},
+            new NavigationTabStripItem { Content = "Данные"}
+        };
         public MainWindowViewModel()
         {
         }

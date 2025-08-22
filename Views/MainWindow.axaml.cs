@@ -8,5 +8,9 @@ namespace NavigationTabShowCase.Views
         {
             InitializeComponent();
         }
+
+        private void TabItem_PointerPressed(object? sender, Avalonia.Input.PointerPressedEventArgs e)
+        {
+        }
     }
 }
