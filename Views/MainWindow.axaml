@@ -1,18 +1,18 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:NavigationTabShowCase.ViewModels"
+		xmlns:localModel="using:NavigationTabShowCase.Models"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
-		xmlns:anim="https://github.com/avaloniaui/animation"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="NavigationTabShowCase.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="NavigationTabShowCase">
 	<Window.Styles>
-		<Style Selector="Expander.selected">
-		</Style>
+		
+		
 	</Window.Styles>
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -27,6 +27,9 @@
 		</Grid.RowDefinitions>
 		<Grid Grid.Row="0">
 			<TextBlock Text="Заготовка один"/>
+			<localModel:NavigationTabStrip ItemsSource="{Binding CollectionOneForTest}">
+				
+			</localModel:NavigationTabStrip>
 		</Grid>
 		<Grid Grid.Row="1">
 			<TextBlock Text="Заготовка два"/>

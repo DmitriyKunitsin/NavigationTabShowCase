@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace NavigationTabShowCase.Models
 {
     /// <summary>
-    /// Представляет элемент управления, который представляет отдельные действия.
+    /// Класс представляющий действия с выпадающим списком настроек, содержит в себе набор айтемов
     /// </summary>
     public class NavigationActionStrip : ItemsControl
     {
@@ -28,5 +29,9 @@ namespace NavigationTabShowCase.Models
                 SetValue(IsExpandedProperty, value);
             }
         }
+        /// <summary>
+        /// Набор айтемов, которые содержит в себе выпадающий список
+        /// </summary>
+        public ObservableCollection<NavigationActionStripItem> Actions { get; private set; } = new ObservableCollection<NavigationActionStripItem>();
     }
 }
