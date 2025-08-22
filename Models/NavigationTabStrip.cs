@@ -1,4 +1,5 @@
-﻿using Avalonia.Controls;
+﻿using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Markup.Xaml;
 using System;
@@ -13,5 +14,14 @@ namespace NavigationTabShowCase.Models
     public class NavigationTabStrip : SelectingItemsControl
     {
         // Специфичные свойства \ методы для таб-контрола
+        public static readonly StyledProperty<string> NameTabProperty = AvaloniaProperty.Register<NavigationActionStripItem, string>(nameof(NameTab));
+        /// <summary>
+        /// 
+        /// </summary>
+        public string NameTab
+        {
+            get => GetValue(NameTabProperty);
+            set => SetValue(NameTabProperty, value);
+        }
     }
 }

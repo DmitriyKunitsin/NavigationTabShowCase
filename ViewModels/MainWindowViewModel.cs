@@ -14,9 +14,9 @@ namespace NavigationTabShowCase.ViewModels
         public ObservableCollection<NavigationTabStripItem> Tabs { get; }
         = new ObservableCollection<NavigationTabStripItem>() 
         { 
-            new NavigationTabStripItem { Content = "Вкладка 1"},
-            new NavigationTabStripItem { Content = "Вкладка 2"},
-            new NavigationTabStripItem { Content = "Вкладка 3"}
+            new NavigationTabStripItem { Content = "Главная"},
+            new NavigationTabStripItem { Content = "Меню"},
+            new NavigationTabStripItem { Content = "Данные"}
         };
         public MainWindowViewModel()
         {
