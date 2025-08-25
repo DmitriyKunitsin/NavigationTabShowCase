@@ -11,5 +11,6 @@ namespace NavigationTabShowCase.ViewModels.Intarfaces
     {
         public string Title { get; }
         public ICommand Command { get; }
+        public object? Icon { get; }
     }
 }

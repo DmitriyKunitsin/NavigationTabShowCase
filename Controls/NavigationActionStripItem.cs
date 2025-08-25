@@ -1,4 +1,5 @@
-﻿using Avalonia.Controls;
+﻿using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Interactivity;
 using NavigationTabShowCase.ViewModels.Intarfaces;
@@ -10,33 +11,16 @@ namespace NavigationTabShowCase.Models
     /// <summary>
     
     /// </summary>
-    public class NavigationActionStripItem : ContentControl, IRibbonAction
+    public class NavigationActionStripItem : Button
     {
-        // Реализация элемента action-стрипа
-        /// <summary>
-        /// Регистрация события клика
-        /// </summary>
-        public static readonly RoutedEvent<RoutedEventArgs> ClickEvent = RoutedEvent.Register<NavigationActionStripItem, RoutedEventArgs>(nameof(Click), RoutingStrategies.Bubble);
-
-        public string Title => "Decription";
-
-        public ICommand Command => null;
-
-        /// <summary>
-        /// Обертка для доступа к событию
-        /// </summary>
-        public event EventHandler<RoutedEventArgs> Click
-        {
-            add => AddHandler(ClickEvent, value);
-            remove => RemoveHandler(ClickEvent, value);
-        }
-        /// <summary>
-        /// Метод для вызова события (можно вызвать при нажатии)
-        /// </summary>
-        protected virtual void OnClick()
-        {
-            var args =  new RoutedEventArgs(ClickEvent);
-            RaiseEvent(args);
+        public static readonly StyledProperty<string> TitleProperty = 
+            AvaloniaProperty.Register<NavigationActionStripItem, string>(
+                name: nameof(Title), 
+                defaultValue: string.Empty);
+        public string Title 
+        { 
+            get => GetValue( TitleProperty ); 
+            set => SetValue(TitleProperty, value); 
         }
     }
 }

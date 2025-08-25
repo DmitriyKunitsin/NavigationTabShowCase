@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
+		
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="NavigationTabShowCase.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -13,6 +14,16 @@
 	<Window.DataContext>
 		<vm:MainWindowViewModel/>
 	</Window.DataContext>
+	<Window.DataTemplates>
+		<DataTemplate DataType="vm:ActionViewModel">
+			<localModel:NavigationActionStripItem 
+				Title="{Binding Title}" 
+				Content="{Binding Icon}"
+				Command="{Binding Command}">
+				
+			</localModel:NavigationActionStripItem>
+		</DataTemplate>
+	</Window.DataTemplates>
 	<Window.Styles>
 		<!--Кастомный стиль для кнопки-->
 		<Style Selector="Button.CustomButton">
@@ -28,65 +39,6 @@
 			<Setter Property="Background" Value="#A8A8B8"/>
 		</Style>
 		
-		<!-- Стиль для NavigationTabStrip всех содержищихся кнопок-->
-		<Style Selector="localModel|NavigationTabStrip">
-			<Setter Property="Template">
-				<ControlTemplate>
-					<StackPanel Orientation="Horizontal">
-						<TabControl>
-							<TabItem Header="{Binding $parent[localModel:NavigationTabStrip].NameTab}">
-								<TabItem.Content>
-									<ItemsPresenter/>
-								</TabItem.Content>
-							</TabItem>
-						</TabControl>
-					</StackPanel>
-					<!--<TreeView>
-						<TreeViewItem Header="{Binding $parent[localModel:NavigationTabStrip].NameTab}"> 
-						</TreeViewItem>
-					</TreeView>-->
-				</ControlTemplate>
-			</Setter> 
-		</Style>
-
-		<!-- Стиль для NavigationTabStripItem кнопки менюшки -->
-		<Style Selector="localModel|NavigationTabStripItem">
-			<Setter Property="Template">
-				<ControlTemplate>
-					<StackPanel IsVisible="{Binding $parent[localModel:NavigationTabStrip].SelectedItem}">
-						<Button Content="{TemplateBinding Content}"
-								Classes="CustomButton"
-								Margin="5"
-								HorizontalContentAlignment="Center"
-								CommandParameter="{Binding $parent[localModel:NavigationTabStrip].SelectedItem}"
-								/>
-					</StackPanel>
-				</ControlTemplate>
-			</Setter>
-		</Style>
-		
-		<!--Стиль для NavigationActionStrip-->
-		<Style Selector="localModel|NavigationActionStrip">
-			<Setter Property="Template">
-				<ControlTemplate>
-					<StackPanel Orientation="Horizontal">
-						<ItemsPresenter/>
-					</StackPanel>
-				</ControlTemplate>
-			</Setter>
-		</Style>
-		
-		<!--Стиль для NavigationActionStripItem-->
-		<Style Selector="localModel|NavigationActionStripItem">
-			<Setter Property="Template">
-				<ControlTemplate>
-						<Button Content="{TemplateBinding Content}"
-								Classes="CustomButton"
-								Background="Red"
-								Margin="5"/>
-				</ControlTemplate>
-			</Setter>
-		</Style>
 	</Window.Styles>
 	<Design.DataContext>
         <vm:MainWindowViewModel/>
@@ -111,11 +63,11 @@
 				<RowDefinition/>
 			</Grid.RowDefinitions>
 			<TextBlock Text="Пример NavigationActionStrip" Grid.Row="0"/>
-			<localModel:NavigationActionStrip ItemsSource="{Binding TabsMenu}" Grid.Row="1">
-				
-			</localModel:NavigationActionStrip>
 		</Grid>
 		<Grid Grid.Row="2">
+			<localModel:NavigationActionStrip ItemsSource="{Binding Tabs}">
+				
+			</localModel:NavigationActionStrip>
 		</Grid>
 	</Grid>
 	

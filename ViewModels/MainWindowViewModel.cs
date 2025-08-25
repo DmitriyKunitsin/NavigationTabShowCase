@@ -8,13 +8,16 @@ namespace NavigationTabShowCase.ViewModels
 {
     public partial class MainWindowViewModel : ViewModelBase
     {
-        public ObservableCollection<NavigationTabStripItem> Tabs { get; }
-        public ObservableCollection<NavigationActionStrip> TabsMenu { get; }
-        public ObservableCollection<NavigationActionStrip> TabsActionStrip { get; }
+        public ObservableCollection<ActionViewModel> Tabs { get; }
 
         public MainWindowViewModel()
         {
-
+            Tabs = new ObservableCollection<ActionViewModel>() 
+            { 
+                new ActionViewModel() {Title = "TTTTT"},
+                new ActionViewModel() {Title = "FFFFF"},
+                new ActionViewModel() {Title = "SSSSS"},
+            } ;
         }
     }
 }

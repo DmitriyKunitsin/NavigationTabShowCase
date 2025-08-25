@@ -21,8 +21,7 @@ namespace NavigationTabShowCase.Models
     [PseudoClasses(PcExpanded)]
     public class NavigationActionStrip : ItemsControl
     {
-        public const string TpExpandedButton = "PART_ExpandButton"
-            ;
+        public const string TpExpandedButton = "PART_ExpandButton";
         public const string PcExpanded = ":expanded";
         private Button? _button;
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)

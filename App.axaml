@@ -14,7 +14,8 @@
 		<themes:BundledTheme BaseTheme="Dark" PrimaryColor="Teal" SecondaryColor="Amber"/>
 	</Application.Resources>
     <Application.Styles>
-		<StyleInclude Source="avares://Avalonia.Themes.Fluent/FluentTheme.xaml"/>
+		<!--<StyleInclude Source="avares://Avalonia.Themes.Fluent/FluentTheme.xaml"/>-->
+		<SimpleTheme/>
 	    <StyleInclude Source="avares://IconPacks.Avalonia.BoxIcons/BoxIcons.axaml"/>
 	</Application.Styles>
 </Application>
