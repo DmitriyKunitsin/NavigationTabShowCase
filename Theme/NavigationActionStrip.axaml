@@ -1,0 +1,84 @@
+<!-- Объявление ResourceDictionary - контейнера для ресурсов (стилей, тем, шаблонов) -->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cc="clr-namespace:NavigationTabShowCase.Models;assembly=NavigationTabShowCase">
+
+	<!-- Определение кастомной темы для кнопки с ключом "PathPickerButton" -->
+	<ControlTheme x:Key="PathPickerButton"
+                  BasedOn="{StaticResource {x:Type Button}}" 
+				TargetType="Button">  
+				<!-- BasedOn : Наследуемся от стандартной темы Button -->
+				<!-- TargetType : Тип элемента, к которому применяется тема -->
+		
+
+		<!-- Устанавливаем нулевые отступы внутри кнопки -->
+		<Setter Property="Padding" Value="0"/>
+
+		<!-- Прозрачный фон кнопки по умолчанию -->
+		<Setter Property="Background" Value="Transparent" />
+
+		<!-- Прозрачная граница кнопки по умолчанию -->
+		<Setter Property="BorderBrush" Value="Transparent" />
+
+		<!-- Стиль для состояния наведения курсора -->
+		<Style Selector="^ /template/ Button:pointerover">
+			<!-- Изменение фона при наведении -->
+			<Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+
+			<!-- Изменение цвета границы при наведении -->
+			<Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
+		</Style>
+	</ControlTheme>
+
+	<!-- Определение темы для кастомного элемента NavigationActionStrip -->
+	<ControlTheme x:Key="{x:Type cc:NavigationActionStrip}"
+                  TargetType="cc:NavigationActionStrip">
+		<!-- Тип кастомного элемента -->
+
+		<!-- Фон элемента, берется из ресурсов темы -->
+		<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}"/>
+
+		<!-- Цвет границы из ресурсов темы -->
+		<Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}"/>
+
+		<!-- Толщина границы из ресурсов темы -->
+		<Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}"/>
+
+		<!-- Внутренние отступы -->
+		<Setter Property="Padding" Value="4"/>
+
+		<!-- Шаблон визуального представления элемента -->
+		<Setter Property="Template">
+			<ControlTemplate>
+				<!-- Основная граница элемента -->
+				<Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+
+					<!-- Кнопка для раскрытия списка -->
+					<Button
+                        Name="PART_ExpandButton"
+						Theme="{StaticResource PathPickerButton}"  
+						VerticalAlignment="Center">  
+						<!-- Name : Имя части шаблона -->
+						<!-- Theme : Применяем нашу кастомную тему -->
+						<!-- VerticalAlignment : Выравнивание по центру по вертикали -->
+
+						<!-- Графическое представление кнопки (стрелка вниз) -->
+						<Path Width="16" Height="16"
+                              Fill="{DynamicResource ThemeForegroundBrush}"
+							  Opacity="0.6">  
+							<!-- Fill: Цвет из темы -->
+							<!-- Opacity : Полупрозрачность -->
+							<Path.Data>
+								<!-- Геометрия стрелки (треугольник вниз) -->
+								<PathGeometry Figures="M0 0L3 3L6 0Z"/>
+							</Path.Data>
+						</Path>
+					</Button>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+	</ControlTheme>
+</ResourceDictionary>

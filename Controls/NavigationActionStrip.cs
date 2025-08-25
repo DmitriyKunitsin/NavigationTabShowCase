@@ -33,6 +33,10 @@ namespace NavigationTabShowCase.Models
                 PseudoClasses.Set(PcExpanded, IsExpanded);
             }
         }
+        /// <summary>
+        /// Авалониевский метод
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
