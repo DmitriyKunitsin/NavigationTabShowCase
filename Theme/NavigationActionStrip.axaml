@@ -11,43 +11,41 @@
 				<!-- TargetType : Тип элемента, к которому применяется тема -->
 		
 
-		<!-- Устанавливаем нулевые отступы внутри кнопки -->
+		<!-- Padding : Устанавливаем нулевые отступы внутри кнопки -->
 		<Setter Property="Padding" Value="0"/>
 
-		<!-- Прозрачный фон кнопки по умолчанию -->
+		<!-- Background : Прозрачный фон кнопки по умолчанию -->
 		<Setter Property="Background" Value="Transparent" />
 
-		<!-- Прозрачная граница кнопки по умолчанию -->
+		<!-- BorderBrush : Прозрачная граница кнопки по умолчанию -->
 		<Setter Property="BorderBrush" Value="Transparent" />
 
 		<!-- Стиль для состояния наведения курсора -->
 		<Style Selector="^ /template/ Button:pointerover">
-			<!-- Изменение фона при наведении -->
+			<!-- Background : Изменение фона при наведении -->
 			<Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
 
-			<!-- Изменение цвета границы при наведении -->
+			<!-- BorderBrush : Изменение цвета границы при наведении -->
 			<Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
 		</Style>
 	</ControlTheme>
 
-	<!-- Определение темы для кастомного элемента NavigationActionStrip -->
+	<!-- x:Key : Определение темы для кастомного элемента NavigationActionStrip -->
 	<ControlTheme x:Key="{x:Type cc:NavigationActionStrip}"
                   TargetType="cc:NavigationActionStrip">
-		<!-- Тип кастомного элемента -->
-
-		<!-- Фон элемента, берется из ресурсов темы -->
+		<!-- TargetType : Тип кастомного элемента -->
+		<!-- Background : Фон элемента, берется из ресурсов темы -->
 		<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}"/>
-
-		<!-- Цвет границы из ресурсов темы -->
+		<!-- BorderBrush : Цвет границы из ресурсов темы -->
 		<Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}"/>
 
-		<!-- Толщина границы из ресурсов темы -->
+		<!-- BorderThickness : Толщина границы из ресурсов темы -->
 		<Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}"/>
 
-		<!-- Внутренние отступы -->
+		<!-- Padding : Внутренние отступы -->
 		<Setter Property="Padding" Value="4"/>
 
-		<!-- Шаблон визуального представления элемента -->
+		<!-- Template : Шаблон визуального представления элемента -->
 		<Setter Property="Template">
 			<ControlTemplate>
 				<!-- Основная граница элемента -->
