@@ -1,4 +1,5 @@
 ﻿using Avalonia.Controls;
+using Avalonia.Controls.Metadata;
 using Avalonia.Interactivity;
 using NavigationTabShowCase.ViewModels.Intarfaces;
 using System;
@@ -7,7 +8,7 @@ using System.Windows.Input;
 namespace NavigationTabShowCase.Models
 {
     /// <summary>
-    /// 
+    
     /// </summary>
     public class NavigationActionStripItem : ContentControl, IRibbonAction
     {
@@ -19,7 +20,7 @@ namespace NavigationTabShowCase.Models
 
         public string Title => "Decription";
 
-        public ICommand Command => throw new NotImplementedException();
+        public ICommand Command => null;
 
         /// <summary>
         /// Обертка для доступа к событию

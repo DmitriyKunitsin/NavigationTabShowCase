@@ -10,6 +10,6 @@ namespace NavigationTabShowCase.ViewModels.Intarfaces
     public interface ITab
     {
         public string Title { get; }
-        public IReadOnlyList<IRibbonAction> Actions { get; }
+        public IReadOnlyList<IRibbonAction> Actions { get; set; }
     }
 }

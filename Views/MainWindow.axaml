@@ -34,8 +34,7 @@
 				<ControlTemplate>
 					<StackPanel Orientation="Horizontal">
 						<TabControl>
-							<TabItem Header="{Binding $parent[localModel:NavigationTabStrip].NameTab}"
-									 >
+							<TabItem Header="{Binding $parent[localModel:NavigationTabStrip].NameTab}">
 								<TabItem.Content>
 									<ItemsPresenter/>
 								</TabItem.Content>
@@ -65,6 +64,29 @@
 				</ControlTemplate>
 			</Setter>
 		</Style>
+		
+		<!--Стиль для NavigationActionStrip-->
+		<Style Selector="localModel|NavigationActionStrip">
+			<Setter Property="Template">
+				<ControlTemplate>
+					<StackPanel Orientation="Horizontal">
+						<ItemsPresenter/>
+					</StackPanel>
+				</ControlTemplate>
+			</Setter>
+		</Style>
+		
+		<!--Стиль для NavigationActionStripItem-->
+		<Style Selector="localModel|NavigationActionStripItem">
+			<Setter Property="Template">
+				<ControlTemplate>
+						<Button Content="{TemplateBinding Content}"
+								Classes="CustomButton"
+								Background="Red"
+								Margin="5"/>
+				</ControlTemplate>
+			</Setter>
+		</Style>
 	</Window.Styles>
 	<Design.DataContext>
         <vm:MainWindowViewModel/>
@@ -81,54 +103,19 @@
 				<RowDefinition/>
 				<RowDefinition/>
 			</Grid.RowDefinitions>
-			<TextBlock Text="Пример наполнения контентом из ViewModel" Grid.Row="0"/>
-			<StackPanel Orientation="Horizontal">
-				<localModel:NavigationTabStrip NameTab="Главная" ItemsSource="{Binding Tabs}" Grid.Row="2">
-				</localModel:NavigationTabStrip>
-				<localModel:NavigationTabStrip NameTab="Меню" ItemsSource="{Binding TabsMenu}" Grid.Row="2">
-				</localModel:NavigationTabStrip>
-			</StackPanel>
+			<!--<TextBlock Text="Пример наполнения контентом из ViewModel" Grid.Row="0"/>-->
 		</Grid>
 		<Grid Grid.Row="1">
 			<Grid.RowDefinitions>
 				<RowDefinition/>
 				<RowDefinition/>
 			</Grid.RowDefinitions>
-			<TextBlock Text="Пример наполнения контентом из XAML" Grid.Row="0"/>
-			<localModel:NavigationTabStrip NameTab="XAML" Grid.Row="1">
-				<!--<localModel:NavigationTabStripItem Content="Кнопка 1"/>
-				<localModel:NavigationTabStripItem Content="Кнопка 2"/>
-				<localModel:NavigationTabStripItem Content="Кнопка 3"/>
-				<localModel:NavigationTabStripItem Content="Кнопка 4"/>-->
-			</localModel:NavigationTabStrip>
+			<TextBlock Text="Пример NavigationActionStrip" Grid.Row="0"/>
+			<localModel:NavigationActionStrip ItemsSource="{Binding TabsMenu}" Grid.Row="1">
+				
+			</localModel:NavigationActionStrip>
 		</Grid>
 		<Grid Grid.Row="2">
-			<TabControl>
-				<TabItem Header="Главная">
-					
-				</TabItem>
-				<TabItem Header="Меню">
-					<TabItem.Content>
-						<StackPanel Orientation="Horizontal">
-							<TabItem Header="Файл" PointerPressed="TabItem_PointerPressed">
-							</TabItem>
-							<TabItem Header="Данные">
-							</TabItem>
-							<TabItem Header="Вид">
-							</TabItem>
-						</StackPanel>
-					</TabItem.Content>
-				</TabItem>
-			</TabControl>
-			<!--<TreeView>
-				<TreeViewItem Header="Главная вкладка">
-					<StackPanel Orientation="Horizontal">
-						<Button Content="Кнопка 1"/>
-						<Button Content="Кнопка 1"/>
-						<Button Content="Кнопка 1"/>
-					</StackPanel>
-				</TreeViewItem>
-			</TreeView>-->
 		</Grid>
 	</Grid>
 	
