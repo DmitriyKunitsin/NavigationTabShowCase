@@ -4,9 +4,7 @@
                     xmlns:cc="clr-namespace:NavigationTabShowCase.Models;assembly=NavigationTabShowCase">
 	<Design.PreviewWith>
 		<Border Padding="8">
-			<cc:NavigationActionStrip 
-				Width="200"
-				Height="200">
+			<cc:NavigationActionStrip >
 				<TextBlock Text="SSSSSSS"/>
 				<TextBlock Text="ddddddd"/>
 				<TextBlock Text="eeeeeee"/>
@@ -70,13 +68,15 @@
                         CornerRadius="{TemplateBinding CornerRadius}">
 					<DockPanel >
 				
-						<Border BorderBrush="Red" BorderThickness="7" Name="root">
+						<Border BorderBrush="Red" BorderThickness="7" Name="root"
+								DockPanel.Dock="Left">
 							<ScrollViewer>
 								<ItemsPresenter Name="PART_ItemsPresenter"/>
 							</ScrollViewer>
 						</Border>
 						<!-- Кнопка для раскрытия списка -->
 						<Button
+							Padding="5"
 							DockPanel.Dock="Right"
 							Name="PART_ExpandButton"
 							Theme="{StaticResource PathPickerButton}"  

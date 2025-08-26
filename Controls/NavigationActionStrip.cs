@@ -21,6 +21,7 @@ namespace NavigationTabShowCase.Models
     [PseudoClasses(PcExpanded)]
     public class NavigationActionStrip : ItemsControl
     {
+        public NavigationActionStrip() { }
         public const string TpExpandedButton = "PART_ExpandButton";
         public const string PcExpanded = ":expanded";
         private Button? _button;

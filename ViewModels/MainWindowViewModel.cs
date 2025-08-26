@@ -14,9 +14,9 @@ namespace NavigationTabShowCase.ViewModels
         {
             Tabs = new ObservableCollection<ActionViewModel>() 
             { 
-                new ActionViewModel() {Title = "TTTTT"},
-                new ActionViewModel() {Title = "FFFFF"},
-                new ActionViewModel() {Title = "SSSSS"},
+                new ActionViewModel() {Title = "Главная"},
+                new ActionViewModel() {Title = "Файл"},
+                new ActionViewModel() {Title = "Данные"},
             } ;
         }
     }
