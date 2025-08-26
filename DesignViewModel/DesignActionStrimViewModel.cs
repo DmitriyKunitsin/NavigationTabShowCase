@@ -1,10 +1,9 @@
-﻿using NavigationTabShowCase.ViewModels;
-using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 
 namespace NavigationTabShowCase.DesignViewModel
 {
-    public class DesignActionStrimViewModel : ViewModelBase
+    public static class DesignActionStrimViewModel 
     {
-        public List<string> Actions { get;  } = new List<string>() { "Главная", "Файл", "Меню" };
+        public static ObservableCollection<string> Actions { get;  } = new ObservableCollection<string>() { "Главная", "Файл", "Меню" };
     }
 }

@@ -2,14 +2,8 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
+using Avalonia.Diagnostics;
 using Avalonia.Interactivity;
-using NavigationTabShowCase.ViewModels.Intarfaces;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NavigationTabShowCase.Controls
 {
@@ -21,7 +15,6 @@ namespace NavigationTabShowCase.Controls
     [PseudoClasses(PcExpanded)]
     public class NavigationActionStrip : ItemsControl
     {
-        public NavigationActionStrip() { }
         public const string TpExpandedButton = "PART_ExpandButton";
         public const string PcExpanded = ":expanded";
         private Button? _button;
@@ -62,19 +55,19 @@ namespace NavigationTabShowCase.Controls
         /// <summary>
         /// Свойство, указывающее, развернута ли панель навигации.
         /// </summary>
-        public static readonly StyledProperty<bool> IsExpandedProperty = 
+        public static readonly StyledProperty<bool> IsExpandedProperty =
             AvaloniaProperty.Register<NavigationActionStrip, bool>(
-                name: nameof(IsExpanded), 
+                name: nameof(IsExpanded),
                 defaultValue: false);
         /// <summary>
         /// Получает или устанавливает значение, указывающее, развернута ли панель навигации.
         /// </summary>
-        public bool IsExpanded 
-        { 
+        public bool IsExpanded
+        {
             get => GetValue(IsExpandedProperty);
             set => SetValue(IsExpandedProperty, value);
-            
+
         }
-        
+
     }
 }
