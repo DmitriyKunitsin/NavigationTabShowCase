@@ -1,6 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-					xmlns:cc="clr-namespace:NavigationTabShowCase.Models;assembly=NavigationTabShowCase">
+					xmlns:cc="clr-namespace:NavigationTabShowCase.Controls;assembly=NavigationTabShowCase">
 	<Design.PreviewWith>
 		<cc:NavigationActionStripItem Title="XYETA">
 		</cc:NavigationActionStripItem>
@@ -18,7 +18,6 @@
 					<TextBlock
 						Name="PART_TextBlock"
 						Text="{TemplateBinding Title}">
-					
 					</TextBlock>
 				</Border>
 			</ControlTemplate>

@@ -7,7 +7,7 @@ using NavigationTabShowCase.ViewModels.Intarfaces;
 using System;
 using System.Windows.Input;
 
-namespace NavigationTabShowCase.Models
+namespace NavigationTabShowCase.Controls
 {
     [TemplatePart(TpTextBlock, typeof(TextBlock))]
     public class NavigationActionStripItem : Button

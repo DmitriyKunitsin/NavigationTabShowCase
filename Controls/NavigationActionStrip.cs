@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NavigationTabShowCase.Models
+namespace NavigationTabShowCase.Controls
 {
     /// <summary>
     /// Класс представляющий действия с выпадающим списком настроек, содержит в себе набор айтемов

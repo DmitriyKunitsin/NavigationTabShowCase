@@ -1,7 +1,7 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:NavigationTabShowCase.ViewModels"
-		xmlns:localModel="using:NavigationTabShowCase.Models"
+		xmlns:localModel="using:NavigationTabShowCase.Controls"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
@@ -15,14 +15,14 @@
 	<Window.DataContext>
 		<vm:MainWindowViewModel/>
 	</Window.DataContext>
-	<Window.DataTemplates>
+	<!--<Window.DataTemplates>
 		<DataTemplate DataType="vm:ActionViewModel">
 			<localModel:NavigationActionStripItem 
 				Title="{Binding Title}" 
 				Command="{Binding Command}">
 			</localModel:NavigationActionStripItem>
 		</DataTemplate>
-	</Window.DataTemplates>
+	</Window.DataTemplates>-->
 	<Window.Styles>
 		<!--Кастомный стиль для кнопки-->
 		<Style Selector="Button.CustomButton">

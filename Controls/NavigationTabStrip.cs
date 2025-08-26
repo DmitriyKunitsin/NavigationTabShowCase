@@ -5,7 +5,7 @@ using Avalonia.Markup.Xaml;
 using System;
 using System.Collections.ObjectModel;
 
-namespace NavigationTabShowCase.Models
+namespace NavigationTabShowCase.Controls
 {
 
     /// <summary>

@@ -1,4 +1,4 @@
-﻿using NavigationTabShowCase.Models;
+﻿using NavigationTabShowCase.Controls;
 using NavigationTabShowCase.ViewModels.Intarfaces;
 using System;
 using System.Collections.Generic;

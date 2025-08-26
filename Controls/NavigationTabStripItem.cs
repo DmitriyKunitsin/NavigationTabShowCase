@@ -1,12 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NavigationTabShowCase.Models
+namespace NavigationTabShowCase.Controls
 {
     /// <summary>
     /// Представляет логику представления, отедельной вкладкой.
