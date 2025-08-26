@@ -1,112 +1,86 @@
-<!-- Объявление ResourceDictionary - контейнера для ресурсов (стилей, тем, шаблонов) -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 					xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 					mc:Ignorable="d"
 					xmlns:dvm="clr-namespace:NavigationTabShowCase.DesignViewModel;assembly=NavigationTabShowCase"
+					xmlns:vm ="clr-namespace:NavigationTabShowCase.ViewModels;assembly=NavigationTabShowCase"
                     xmlns:cc="clr-namespace:NavigationTabShowCase.Controls;assembly=NavigationTabShowCase">
 	<Design.PreviewWith>
-		<cc:NavigationActionStrip ItemsSource="{x:Static dvm:DesignActionStrimViewModel.Actions}">
-			
+		<cc:NavigationActionStrip ItemsSource="{x:Static dvm:DesignActionStrimViewModel.ActionsViewModels}">
 		</cc:NavigationActionStrip>
 	</Design.PreviewWith>
-	<!-- x:Key : Определение кастомной темы для кнопки с ключом "PathPickerButton" -->
+	<!--<DataTemplates>
+		<DataTemplate DataType="{x:Type vm:ActionViewModel}">
+			<Border BorderBrush="Green" BorderThickness="4" Margin="5">
+				<StackPanel Orientation="Horizontal">
+					<TextBlock Text="{Binding }" Margin="55"/>
+				</StackPanel>
+			</Border>
+		</DataTemplate>
+	</DataTemplates>-->
     <ControlTheme x:Key="PathPickerButton"
                   BasedOn="{StaticResource {x:Type Button}}" 
                 TargetType="Button">  
-                <!-- BasedOn : Наследуемся от стандартной темы Button -->
-                <!-- TargetType : Тип элемента, к которому применяется тема -->
-        
-
-        <!-- Padding : Устанавливаем нулевые отступы внутри кнопки -->
         <Setter Property="Padding" Value="0"/>
-
-        <!-- Background : Прозрачный фон кнопки по умолчанию -->
         <Setter Property="Background" Value="Yellow" />
-
-        <!-- BorderBrush : Прозрачная граница кнопки по умолчанию -->
         <Setter Property="BorderBrush" Value="Transparent" />
-
-        <!-- Стиль для состояния наведения курсора -->
         <Style Selector="^ /template/ Button:pointerover">
-            <!-- Background : Изменение фона при наведении -->
             <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
-
-            <!-- BorderBrush : Изменение цвета границы при наведении -->
             <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
         </Style>
     </ControlTheme>
 
-    <!-- x:Key : Определение темы для кастомного элемента NavigationActionStrip -->
     <ControlTheme x:Key="{x:Type cc:NavigationActionStrip}"
                   TargetType="cc:NavigationActionStrip">
-        <!-- TargetType : Тип кастомного элемента -->
-        
-        <!-- Background : Фон элемента, берется из ресурсов темы -->
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}"/>
-        <!-- BorderBrush : Цвет границы из ресурсов темы -->
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}"/>
-
-        <!-- BorderThickness : Толщина границы из ресурсов темы -->
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}"/>
-
-        <!-- Padding : Внутренние отступы -->
         <Setter Property="Padding" Value="4"/>
-
-        <!-- Template : Шаблон визуального представления элемента -->
+		<!--<Setter Property="ItemTemplate">
+			<DataTemplate>
+				<Border BorderBrush="Green" BorderThickness="4" Margin="5">
+			        <StackPanel Orientation="Horizontal">
+				        <TextBlock Text="{Binding }" Margin="55"/>
+			        </StackPanel> 
+				</Border>
+			</DataTemplate>
+		</Setter>-->
         <Setter Property="Template">
             <ControlTemplate>
-                <!-- Основная граница элемента -->
                 <Border Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <DockPanel >
-                
-                        <Border BorderBrush="Red" BorderThickness="7" Name="root"
-                                DockPanel.Dock="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Border BorderBrush="Red" BorderThickness="7" Name="root">
                             <ScrollViewer>
                                 <ItemsPresenter Name="PART_ItemsPresenter"/>
                             </ScrollViewer>
                         </Border>
-                        <!-- Кнопка для раскрытия списка -->
                         <Button
                             Padding="5"
-                            DockPanel.Dock="Right"
                             Name="PART_ExpandButton"
                             Theme="{StaticResource PathPickerButton}"  
                             VerticalAlignment="Center"
-                            HorizontalAlignment="Center"
-                            >  
-                            <!-- Name : Имя части шаблона -->
-                            <!-- Theme : Применяем нашу кастомную тему -->
-                            <!-- VerticalAlignment : Выравнивание по центру по вертикали -->
-
-                            <!-- Графическое представление кнопки (стрелка вниз) -->
+                            HorizontalAlignment="Center">  
                             <Path Width="16" Height="16"
                                   Name="pth"
                                   Fill="{DynamicResource ThemeForegroundBrush}"
                                   Opacity="0.6">  
-                                <!-- Fill: Цвет из темы -->
-                                <!-- Opacity : Полупрозрачность -->
                                 <Path.Data>
-                                    <!-- Геометрия стрелки (треугольник вниз) -->
                                     <PathGeometry Figures="M0 0L3 3L6 0Z"/>
                                 </Path.Data>
                             </Path>
                         </Button>
-                    </DockPanel>
+                    </StackPanel>
                 </Border>
             </ControlTemplate>
         </Setter>
-    <Style Selector="^:expanded /template/ TextBlock#tb">
-        <Setter Property="Text" Value="TTTTTEST"/>
-    </Style>
     <Style Selector="^:expanded /template/ Path#pth">
-            <Setter Property="Data"> 
-                <PathGeometry Figures="M10 0L3 3L6 0Z"/>
-            </Setter>
+        <Setter Property="Data"> 
+            <PathGeometry Figures="M10 0L3 3L6 0Z"/>
+        </Setter>
     </Style>
     <Style Selector="^:expanded /template/ Border#root">
         <Setter Property="Height" Value="50"/>
