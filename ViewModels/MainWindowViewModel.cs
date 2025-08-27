@@ -6,11 +6,11 @@ namespace NavigationTabShowCase.ViewModels
     {
         public ObservableCollection<ActionViewModel> Tabs { get; } = new ObservableCollection<ActionViewModel>()
             {
-                new ActionViewModel() {Title = "Главная"},
-                new ActionViewModel() {Title = "Файл"},
-                new ActionViewModel() {Title = "Данные"},
+                new ActionViewModel() {Description = "Главная"},
+                new ActionViewModel() {Description = "Файл"},
+                new ActionViewModel() {Description = "Данные"},
             };
-
+        public static ObservableCollection<string> Actions { get; } = new ObservableCollection<string>() { "Главная", "Файл", "Меню" };
         public MainWindowViewModel()
         {
         }

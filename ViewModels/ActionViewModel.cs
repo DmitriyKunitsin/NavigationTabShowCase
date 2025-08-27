@@ -9,7 +9,7 @@ namespace NavigationTabShowCase.ViewModels
         public ActionViewModel()
         {
         }
-        public string Title { get; set; } = "Description";
+        public string Description { get; set; } = "Description";
 
         public ICommand Command { get; } = new RelayCommand(() => { });
 

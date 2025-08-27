@@ -8,20 +8,17 @@
                     xmlns:cc="clr-namespace:NavigationTabShowCase.Controls;assembly=NavigationTabShowCase">
 	<Design.PreviewWith>
 		<cc:NavigationActionStrip ItemsSource="{x:Static dvm:DesignActionStrimViewModel.ActionsViewModels}">
+			<cc:NavigationActionStrip.DataTemplates>
+				<DataTemplate DataType="{x:Type vm:ActionViewModel}">
+					<!--<cc:NavigationActionStripItem Title="{Binding Description}"/>-->
+					<TextBlock Text="{Binding Description}"/>
+				</DataTemplate>
+			</cc:NavigationActionStrip.DataTemplates>
 		</cc:NavigationActionStrip>
 	</Design.PreviewWith>
-	<!--<DataTemplates>
-		<DataTemplate DataType="{x:Type vm:ActionViewModel}">
-			<Border BorderBrush="Green" BorderThickness="4" Margin="5">
-				<StackPanel Orientation="Horizontal">
-					<TextBlock Text="{Binding }" Margin="55"/>
-				</StackPanel>
-			</Border>
-		</DataTemplate>
-	</DataTemplates>-->
     <ControlTheme x:Key="PathPickerButton"
                   BasedOn="{StaticResource {x:Type Button}}" 
-                TargetType="Button">  
+                  TargetType="Button">  
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Background" Value="Yellow" />
         <Setter Property="BorderBrush" Value="Transparent" />
@@ -37,15 +34,6 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}"/>
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}"/>
         <Setter Property="Padding" Value="4"/>
-		<!--<Setter Property="ItemTemplate">
-			<DataTemplate>
-				<Border BorderBrush="Green" BorderThickness="4" Margin="5">
-			        <StackPanel Orientation="Horizontal">
-				        <TextBlock Text="{Binding }" Margin="55"/>
-			        </StackPanel> 
-				</Border>
-			</DataTemplate>
-		</Setter>-->
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"

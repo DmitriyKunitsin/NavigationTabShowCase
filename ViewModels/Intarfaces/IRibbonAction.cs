@@ -9,7 +9,7 @@ namespace NavigationTabShowCase.ViewModels.Intarfaces
 {
     public interface IRibbonAction
     {
-        public string Title { get; }
+        public string Description { get; }
         public ICommand Command { get; }
         public object? Icon { get; }
     }
