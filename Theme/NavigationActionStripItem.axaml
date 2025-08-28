@@ -8,7 +8,7 @@
 	<ControlTheme x:Key="{x:Type cc:NavigationActionStripItem}" TargetType="cc:NavigationActionStripItem">
 		<Setter Property="Background" Value="Yellow" />
 		<Setter Property="BorderBrush" Value="Blue" />
-		<Setter Property="BorderThickness" Value="10" />
+		<Setter Property="BorderThickness" Value="4" />
 		<Setter Property="Template">
 			<ControlTemplate>
 				<Border 
@@ -16,16 +16,22 @@
 					BorderBrush="{TemplateBinding BorderBrush}"
 					BorderThickness="{TemplateBinding BorderThickness}"
 					CornerRadius="{TemplateBinding CornerRadius}">
-					<TextBlock
-						Name="PART_TextBlock"
-						Text="{TemplateBinding Title}"
-						FontSize="12">
-					</TextBlock>
+					<StackPanel>
+						<TextBlock
+							Name="PART_TextBlock"
+							Text="{TemplateBinding Title}"
+							FontSize="12">
+						</TextBlock>
+					</StackPanel>
 				</Border>
 			</ControlTemplate>
 		</Setter>
 	<Style Selector="^:selectedBtn /template/ Border#bor"> 
 		<Setter Property="BorderBrush" Value="Red"/>
+		<Setter Property="BorderThickness" Value="1"/>
+	</Style>
+	<Style Selector="^:selectedBtn /template/ TextBlock#PART_TextBlock"> 
+		<Setter Property="FontSize" Value="16"/>
 	</Style>
 	</ControlTheme>
 </ResourceDictionary>

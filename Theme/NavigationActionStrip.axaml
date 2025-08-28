@@ -78,5 +78,8 @@
     <Style Selector="^:expanded /template/ Border#root">
         <Setter Property="Height" Value="50"/>
     </Style>
+	<Style Selector="^:expanded /template/ cc|NavigationActionStripItem">
+		<Setter Property="BorderBrush" Value="Green"/>
+	</Style>
     </ControlTheme>
 </ResourceDictionary>

@@ -14,14 +14,6 @@
 	<Window.DataContext>
 		<vm:MainWindowViewModel/>
 	</Window.DataContext>
-	<!--<Window.DataTemplates>
-		<DataTemplate DataType="vm:ActionViewModel">
-			<localModel:NavigationActionStripItem 
-				Title="{Binding Title}" 
-				Command="{Binding Command}">
-			</localModel:NavigationActionStripItem>
-		</DataTemplate>
-	</Window.DataTemplates>-->
 	<Window.Styles>
 		<!--Кастомный стиль для кнопки-->
 		<Style Selector="Button.CustomButton">
@@ -63,7 +55,8 @@
 				<localModel:NavigationActionStrip.DataTemplates>
 					<DataTemplate DataType="{x:Type vm:ActionViewModel}">
 							<localModel:NavigationActionStripItem 
-								Title="{Binding Description}"/>
+								Title="{Binding Description}"
+								/>
 					</DataTemplate>
 				</localModel:NavigationActionStrip.DataTemplates>
 			</localModel:NavigationActionStrip> 
@@ -73,7 +66,13 @@
 			<TextBlock>
 				<Run Text="DEBUG : Tabs items count"/>
 				<Run Text="{Binding Tabs.Count}"/>
-			</TextBlock>	
+			</TextBlock>
+				<MenuItem>
+					<MenuItem.Icon>
+						<Image Source="avares://NavigationTabShowCase/Assets/folder128.png"/>	
+					</MenuItem.Icon>
+				</MenuItem>
+				
 			</StackPanel>
 		</Grid>
 	</Grid>
