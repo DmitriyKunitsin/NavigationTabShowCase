@@ -22,5 +22,6 @@
 	</Application.Resources>
 	<Application.Styles>
 		<SimpleTheme/>
+		<StyleInclude Source="avares://MsBox.Avalonia/Controls/MarkdownView.axaml"/>
 	</Application.Styles>
 </Application>

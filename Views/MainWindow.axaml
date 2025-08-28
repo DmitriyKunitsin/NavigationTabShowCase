@@ -59,7 +59,14 @@
 				<RowDefinition/>
 				<RowDefinition/>
 			</Grid.RowDefinitions>
-			<TextBlock Text="Пример NavigationActionStrip" Grid.Row="0"/>
+			<localModel:NavigationActionStrip ItemsSource="{Binding Tabs}" >
+				<localModel:NavigationActionStrip.DataTemplates>
+					<DataTemplate DataType="{x:Type vm:ActionViewModel}">
+							<localModel:NavigationActionStripItem 
+								Title="{Binding Description}"/>
+					</DataTemplate>
+				</localModel:NavigationActionStrip.DataTemplates>
+			</localModel:NavigationActionStrip> 
 		</Grid>
 		<Grid Grid.Row="2">
 			<StackPanel>
@@ -67,16 +74,6 @@
 				<Run Text="DEBUG : Tabs items count"/>
 				<Run Text="{Binding Tabs.Count}"/>
 			</TextBlock>	
-			<TextBlock Text="Tyt nachalo"/>
-				<localModel:NavigationActionStrip ItemsSource="{Binding Tabs}" >
-					<localModel:NavigationActionStrip.DataTemplates>
-						<DataTemplate DataType="{x:Type vm:ActionViewModel}">
-								<localModel:NavigationActionStripItem 
-									Title="{Binding Description}"/>
-						</DataTemplate>
-					</localModel:NavigationActionStrip.DataTemplates>
-				</localModel:NavigationActionStrip> 
-			<TextBlock Text="Tyt konchalo"/>
 			</StackPanel>
 		</Grid>
 	</Grid>
