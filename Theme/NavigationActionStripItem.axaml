@@ -6,7 +6,7 @@
 		</cc:NavigationActionStripItem>
 	</Design.PreviewWith>
 	<ControlTheme x:Key="{x:Type cc:NavigationActionStripItem}" TargetType="cc:NavigationActionStripItem">
-		<Setter Property="Background" Value="Green" />
+		<Setter Property="Background" Value="Yellow" />
 		<Setter Property="BorderBrush" Value="Blue" />
 		<Setter Property="BorderThickness" Value="10" />
 		<Setter Property="Template">

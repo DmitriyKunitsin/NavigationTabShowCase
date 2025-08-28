@@ -1,10 +1,9 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:NavigationTabShowCase.ViewModels"
+        xmlns:vm="clr-namespace:NavigationTabShowCase.ViewModels;assembly=NavigationTabShowCase"
 		xmlns:localModel="using:NavigationTabShowCase.Controls"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="200"
 		Width="400" Height="200"
         WindowStartupLocation="CenterScreen"
@@ -63,13 +62,22 @@
 			<TextBlock Text="Пример NavigationActionStrip" Grid.Row="0"/>
 		</Grid>
 		<Grid Grid.Row="2">
-			<localModel:NavigationActionStrip ItemsSource="{Binding Tabs}" >
-				<localModel:NavigationActionStrip.DataTemplates>
-					<DataTemplate DataType="{x:Type vm:ActionViewModel}">
-						<TextBlock Text="{Binding Description}"/>
-					</DataTemplate>
-				</localModel:NavigationActionStrip.DataTemplates>
-			</localModel:NavigationActionStrip> 
+			<StackPanel>
+			<TextBlock>
+				<Run Text="DEBUG : Tabs items count"/>
+				<Run Text="{Binding Tabs.Count}"/>
+			</TextBlock>	
+			<TextBlock Text="Tyt nachalo"/>
+				<localModel:NavigationActionStrip ItemsSource="{Binding Tabs}" >
+					<localModel:NavigationActionStrip.DataTemplates>
+						<DataTemplate DataType="{x:Type vm:ActionViewModel}">
+								<localModel:NavigationActionStripItem 
+									Title="{Binding Description}"/>
+						</DataTemplate>
+					</localModel:NavigationActionStrip.DataTemplates>
+				</localModel:NavigationActionStrip> 
+			<TextBlock Text="Tyt konchalo"/>
+			</StackPanel>
 		</Grid>
 	</Grid>
 	

@@ -6,14 +6,20 @@
 			 xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
              RequestedThemeVariant="Default">
 
-    <Application.DataTemplates>
-        <local:ViewLocator/>
-    </Application.DataTemplates>
+	<Application.DataTemplates>
+		<local:ViewLocator/>
+	</Application.DataTemplates>
 	<Application.Resources>
-		<themes:BundledTheme BaseTheme="Dark" PrimaryColor="Teal" SecondaryColor="Amber"/>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<themes:BundledTheme BaseTheme="Dark" PrimaryColor="Teal" SecondaryColor="Amber"/>
+				<ResourceInclude Source="/Theme/NavigationActionStrip.axaml"/>
+				<ResourceInclude Source="/Theme/NavigationActionStripItem.axaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
 	</Application.Resources>
-    <Application.Styles>
+	<Application.Styles>
 		<SimpleTheme/>
-	    <StyleInclude Source="avares://IconPacks.Avalonia.BoxIcons/BoxIcons.axaml"/>
+		<StyleInclude Source="avares://IconPacks.Avalonia.BoxIcons/BoxIcons.axaml"/>
 	</Application.Styles>
 </Application>
