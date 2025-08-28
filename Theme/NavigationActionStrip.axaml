@@ -10,8 +10,7 @@
 		<cc:NavigationActionStrip ItemsSource="{x:Static dvm:DesignActionStrimViewModel.ActionsViewModels}">
 			<cc:NavigationActionStrip.DataTemplates>
 				<DataTemplate DataType="{x:Type vm:ActionViewModel}">
-					<!--<cc:NavigationActionStripItem Title="{Binding Description}"/>-->
-					<TextBlock Text="{Binding Description}"/>
+					<cc:NavigationActionStripItem Title="{Binding Description}"/>
 				</DataTemplate>
 			</cc:NavigationActionStrip.DataTemplates>
 		</cc:NavigationActionStrip>
@@ -41,9 +40,15 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <StackPanel Orientation="Horizontal">
-                        <Border BorderBrush="Red" BorderThickness="7" Name="root">
+                        <Border BorderBrush="DarkGray" BorderThickness="7" Name="root">
                             <ScrollViewer>
-                                <ItemsPresenter Name="PART_ItemsPresenter"/>
+                                <ItemsPresenter Name="PART_ItemsPresenter">
+									<ItemsPresenter.ItemsPanel>
+										<ItemsPanelTemplate>
+											<StackPanel Orientation="Horizontal"/>
+										</ItemsPanelTemplate>
+									</ItemsPresenter.ItemsPanel>
+								</ItemsPresenter>
                             </ScrollViewer>
                         </Border>
                         <Button
