@@ -67,11 +67,12 @@
 				<Run Text="DEBUG : Tabs items count"/>
 				<Run Text="{Binding Tabs.Count}"/>
 			</TextBlock>
-				<MenuItem>
-					<MenuItem.Icon>
-						<Image Source="avares://NavigationTabShowCase/Assets/folder128.png"/>	
-					</MenuItem.Icon>
-				</MenuItem>
+				<StackPanel Orientation="Horizontal">
+					<Image Width="24" Height="24" Source="avares://NavigationTabShowCase/Assets/folder256.png"/>	
+					<Image Width="24" Height="24" Source="avares://NavigationTabShowCase/Assets/document256.png"/>	
+					<Image Width="24" Height="24" Source="avares://NavigationTabShowCase/Assets/home256.png"/>	
+					<Image Width="24" Height="24" Source="avares://NavigationTabShowCase/Assets/ssdDriver256.png"/>	
+				</StackPanel>
 				
 			</StackPanel>
 		</Grid>

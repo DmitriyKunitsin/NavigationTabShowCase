@@ -11,7 +11,7 @@ namespace NavigationTabShowCase.ViewModels
         }
         public string Description { get; set; } = "Description";
 
-        public ICommand Command { get; } = new RelayCommand(() => { });
+        public ICommand ActionCommand { get; } = new RelayCommand(() => { });
 
         public object? Icon => null;
     }
