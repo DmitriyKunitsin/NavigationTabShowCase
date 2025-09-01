@@ -3,6 +3,8 @@ using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
+using Avalonia.LogicalTree;
+using Avalonia.VisualTree;
 using MsBox.Avalonia;
 
 namespace NavigationTabShowCase.Controls
@@ -15,7 +17,6 @@ namespace NavigationTabShowCase.Controls
         private TextBlock? _textBlock;
         public const string TpTextBlock = "PART_TextBlock";
         public const string PcSelected = ":selectedBtn";
-        private bool _isSelected;
 
         public static readonly StyledProperty<string> TitleProperty =
             AvaloniaProperty.Register<NavigationActionStripItem, string>(
@@ -25,7 +26,24 @@ namespace NavigationTabShowCase.Controls
         public static readonly StyledProperty<bool> IsSelectedProperty =
             AvaloniaProperty.Register<NavigationActionStripItem, bool>(
                 name: nameof(IsSelected),
-                defaultValue:false);
+                defaultValue: false);
+        //public static readonly StyledProperty<bool> IsParentExpandedProperty =
+        //    AvaloniaProperty.Register<NavigationActionStripItem, bool>(nameof(IsParentExpanded));
+        //public bool IsParentExpanded
+        //{
+        //    get => GetValue(IsParentExpandedProperty);
+        //    set => SetValue(IsParentExpandedProperty, value);
+        //}
+        //protected override void OnAttachedToLogicalTree(LogicalTreeAttachmentEventArgs e)
+        //{
+        //    base.OnAttachedToLogicalTree(e);
+        //    var rt = this.GetVisualParent();
+        //    var parent = this.GetVisualParent() as NavigationActionStrip;
+        //    if (parent != null)
+        //    {
+        //        //parent.GetObservable(NavigationActionStrip.IsExpandedProperty).Subscribe(expanded => IsParentExpanded = expanded);
+        //    }
+        //}
         public string Title
         {
             get => GetValue(TitleProperty);
@@ -43,7 +61,7 @@ namespace NavigationTabShowCase.Controls
             base.OnPropertyChanged(change);
             if (change.Property == IsSelectedProperty)
             {
-                    SetPseudoClasses();
+                SetPseudoClasses();
             }
         }
         private void SetPseudoClasses()

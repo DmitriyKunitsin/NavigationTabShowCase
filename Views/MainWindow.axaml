@@ -28,7 +28,12 @@
 		<Style Selector="Button.CustomButton:pointerover">
 			<Setter Property="Background" Value="#A8A8B8"/>
 		</Style>
-		
+		<Style Selector="TextBlock">
+			<Setter Property="FontSize" Value="14"/>
+			<Style Selector="^:pointerover">
+				<Setter Property="FontWeight" Value="Bold"/>
+			</Style>
+		</Style>
 	</Window.Styles>
 	<Design.DataContext>
         <vm:MainWindowViewModel/>

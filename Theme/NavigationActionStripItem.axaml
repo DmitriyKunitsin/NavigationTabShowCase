@@ -17,8 +17,11 @@
 					BorderThickness="{TemplateBinding BorderThickness}"
 					CornerRadius="{TemplateBinding CornerRadius}">
 					<StackPanel>
-						<Image Source="/Assets/avalonia-logo.ico"
-							   Width="24" Height="24">
+						<Image 
+								Name="logoMenu"
+								Source="/Assets/avalonia-logo.ico"
+							   Width="24" Height="24"
+							   IsVisible="True">
 							
 						</Image>
 						<TextBlock
@@ -30,6 +33,18 @@
 				</Border>
 			</ControlTemplate>
 		</Setter>
+
+		<!--<Style Selector="^:expanded Border#bor">
+			<Setter Property="BorderBrush" Value="Green"/>
+			--><!-- Пример: меняем цвет бордера --><!--
+			<Setter Property="BorderThickness" Value="2"/>
+			--><!-- Пример: толщина --><!--
+			<Setter Property="Background" Value="LightGreen"/>
+			--><!-- Пример: фон --><!--
+		</Style>-->
+		<!--<Style Selector="^:selectedBtn /template/ Image#logoMenu">
+			<Setter Property="IsVisible" Value="False"/>
+		</Style>-->
 		<Style Selector="^:selectedBtn /template/ Border#bor"> 
 			<Setter Property="BorderBrush" Value="Red"/>
 			<Setter Property="BorderThickness" Value="1"/>

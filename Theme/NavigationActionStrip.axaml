@@ -5,7 +5,9 @@
 					mc:Ignorable="d"
 					xmlns:dvm="clr-namespace:NavigationTabShowCase.DesignViewModel;assembly=NavigationTabShowCase"
 					xmlns:vm ="clr-namespace:NavigationTabShowCase.ViewModels;assembly=NavigationTabShowCase"
-                    xmlns:cc="clr-namespace:NavigationTabShowCase.Controls;assembly=NavigationTabShowCase">
+                    xmlns:cc="clr-namespace:NavigationTabShowCase.Controls;assembly=NavigationTabShowCase"
+					
+					>
 	<Design.PreviewWith>
 		<cc:NavigationActionStrip ItemsSource="{x:Static dvm:DesignActionStrimViewModel.ActionsViewModels}">
 			<cc:NavigationActionStrip.DataTemplates>
@@ -70,6 +72,7 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+
         <Style Selector="^:expanded /template/ Path#pth">
             <Setter Property="Data"> 
                 <PathGeometry Figures="M10 0L3 3L6 0Z"/>
@@ -78,8 +81,8 @@
         <Style Selector="^:expanded /template/ Border#root">
             <Setter Property="Height" Value="100"/>
         </Style>
-	    <Style Selector="^:expanded /template/ cc|NavigationActionStripItem">
-		    <Setter Property="BorderBrush" Value="Green"/>
-	    </Style>
+		<Style Selector="^:expanded /template/ Button">
+			<Setter Property="BorderBrush" Value="Red"/>
+		</Style>
     </ControlTheme>
 </ResourceDictionary>
