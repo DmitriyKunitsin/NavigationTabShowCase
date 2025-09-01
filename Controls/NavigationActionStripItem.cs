@@ -21,37 +21,45 @@ namespace NavigationTabShowCase.Controls
             AvaloniaProperty.Register<NavigationActionStripItem, string>(
                 name: nameof(Title),
                 defaultValue: string.Empty);
+
+        public static readonly StyledProperty<bool> IsSelectedProperty =
+            AvaloniaProperty.Register<NavigationActionStripItem, bool>(
+                name: nameof(IsSelected),
+                defaultValue:false);
         public string Title
         {
             get => GetValue(TitleProperty);
             set => SetValue(TitleProperty, value);
         }
+
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
             _textBlock = e.NameScope.Find<TextBlock>(TpTextBlock);
             SetPseudoClasses();
         }
-        public bool IsSelected
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
         {
-            get => _isSelected;
-            set
+            base.OnPropertyChanged(change);
+            if (change.Property == IsSelectedProperty)
             {
-                if (_isSelected != value)
-                {
-                    _isSelected = value;
                     SetPseudoClasses();
-                }
             }
         }
         private void SetPseudoClasses()
         {
             PseudoClasses.Set(PcSelected, IsSelected);
         }
+
+        public bool IsSelected
+        {
+            get => GetValue(IsSelectedProperty);
+            set => SetValue(IsSelectedProperty, value);
+        }
         protected override void OnPointerEntered(PointerEventArgs e)
         {
             base.OnPointerEntered(e);
-            if (!_isSelected)
+            if (!IsSelected)
             {
                 IsSelected = true;
             }
@@ -59,7 +67,7 @@ namespace NavigationTabShowCase.Controls
         protected override void OnPointerExited(PointerEventArgs e)
         {
             base.OnPointerExited(e);
-            if (_isSelected)
+            if (IsSelected)
             {
                 IsSelected = false;
             }
